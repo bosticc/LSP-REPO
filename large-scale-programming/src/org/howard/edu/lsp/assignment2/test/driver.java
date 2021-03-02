@@ -18,7 +18,7 @@ public class driver {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		allOnes();
+		System.out.print(allOnes());
 		addToTen();
 		zeroTarget();
 		addTo3();
@@ -27,7 +27,7 @@ public class driver {
 		/**
 		 * Tests if the input has all ones will the correct output work
 		 */
-		public static void allOnes() {
+		public static boolean allOnes() {
 			int[] allOnes = {1,1,1,1};
 			int target = 1;
 		    ArrayList<Integer> allIndexes = new ArrayList<Integer>();
@@ -37,6 +37,7 @@ public class driver {
 		    allIndexes.add(3);
 
 			Solution test = new Solution(allOnes, target);
+			return true;
 		}
 		
 		/**
