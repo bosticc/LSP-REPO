@@ -255,7 +255,7 @@ public class IntegerSetTest {
 	
 	@Test
     @DisplayName("Test cases for intersection")
-	public void testIntersection() throws IntegerSetException {
+	public void testIntersection()  {
 		ArrayList<Integer> newList = new ArrayList<Integer>();
 		ArrayList<Integer> otherList = new ArrayList<Integer>();
 		ArrayList<Integer> interSectionList = new ArrayList<Integer>();
@@ -284,7 +284,50 @@ public class IntegerSetTest {
 		IntegerSet interSection = new IntegerSet(interSectionList);
 		newSet.intersect(otherSet);
 		assertEquals(newSet, interSection);
-		
 	}
+
+	@Test
+    @DisplayName("Test cases for union")
+	public void testUnion() {
+		ArrayList<Integer> newList = new ArrayList<Integer>();
+		ArrayList<Integer> tempList = new ArrayList<Integer>();
+		ArrayList<Integer> tempList2 = new ArrayList<Integer>();
+		newList.add(1);
+		newList.add(2);
+		tempList.add(2);
+		tempList.add(3);
+		tempList.add(4);
+		tempList2.add(1);
+		tempList2.add(2);
+		tempList2.add(3);
+		tempList2.add(4);
+		IntegerSet newSet = new IntegerSet(newList);
+		IntegerSet newSet2 = new IntegerSet(tempList);
+		IntegerSet newSet3 = new IntegerSet(tempList2);
+		newSet.union(newSet2);
+		assertEquals(newSet, newSet3);
+	}
+	
+	@Test
+    @DisplayName("Test cases for difference")
+	public void testDifference() {
+		ArrayList<Integer> newList = new ArrayList<Integer>();
+		ArrayList<Integer> tempList = new ArrayList<Integer>();
+		ArrayList<Integer> tempList2 = new ArrayList<Integer>();
+		newList.add(1);
+		newList.add(2);
+		newList.add(3);
+		tempList.add(2);
+		tempList.add(3);
+		tempList.add(4);
+		tempList2.add(1);
+		IntegerSet newSet = new IntegerSet(newList);
+		IntegerSet newSet2 = new IntegerSet(tempList);
+		IntegerSet newSet3 = new IntegerSet(tempList2);
+		newSet.intersect(newSet2);
+		System.out.println(newSet);
+		assertEquals(newSet, newSet3);
+	}
+	
 	
 }
