@@ -35,7 +35,7 @@ public class IntegerSetTest {
 	}
 
 	/**
-	 * Builds and decomposes IntegerSet objects to make sure that they are equal to eachother.
+	 * Tests objects to make sure that they are equal to eachother.
 	 */
 	@Test
     @DisplayName("Test cases for equals")
@@ -65,7 +65,10 @@ public class IntegerSetTest {
 		newList.add(493);
 		assertEquals(newSet.equals(otherSet), false);
 	}
-
+	
+	/**
+	 * Tests IntegerSet objects to make sure when one is cleared its equal to an empty one
+	 */
 	@Test
     @DisplayName("Test cases for clear")
 	public void testClear() {
@@ -91,6 +94,9 @@ public class IntegerSetTest {
 		assertEquals(newSet.equals(otherSet), false);
 	}
 
+	/**
+	 * Tests IntegerSet object and makes sure the length is equal to the actual length
+	 */
 	@Test
     @DisplayName("Test cases for length")
 	public void testLength() {
@@ -117,6 +123,10 @@ public class IntegerSetTest {
 		assertEquals(emptySet.length(), 0);
 	}
 
+	/**
+	 * Tests IntegerSet object and makes sure number in the object
+	 * are being reported 
+	 */
 	@Test
     @DisplayName("Test cases for contains")
 	public void testContains() {
@@ -140,6 +150,9 @@ public class IntegerSetTest {
 		assertEquals(newSet.contains(-1), false);
 	}
 	
+	/**
+	 * Tests IntegerSet objects and makes sure the largest is being thrown back
+	 */
 	@Test
     @DisplayName("Test cases for largest")
 	public void testLargest() throws IntegerSetException {
@@ -170,6 +183,9 @@ public class IntegerSetTest {
 		
 	}
 	
+	/**
+	 * Tests IntegerSet objects and makes sure the smallest is being thrown back
+	 */
 	@Test
     @DisplayName("Test cases for smallest")
 	public void testSmallest() throws IntegerSetException {
@@ -203,7 +219,10 @@ public class IntegerSetTest {
 		}
 	}
 	
-	
+	/**
+	 * Tests IntegerSet objects and makes sure add fn 
+	 * is actually adding to the set
+	 */
 	@Test
     @DisplayName("Test cases for add")
 	public void testAdd() {
@@ -227,6 +246,10 @@ public class IntegerSetTest {
 		assertEquals(newSet.contains(-1), false);
 	}
 	
+	/**
+	 * Tests IntegerSet objects and makes sure remove fn 
+	 * is actually remove the number
+	 */
 	@Test
     @DisplayName("Test cases for remove")
 	public void testRemove() throws IntegerSetException {
@@ -253,6 +276,10 @@ public class IntegerSetTest {
 	}
 	
 	
+	/**
+	 * Tests IntegerSet objects and makes sure intersectino fn 
+	 * is actually intersecting the set
+	 */
 	@Test
     @DisplayName("Test cases for intersection")
 	public void testIntersection()  {
@@ -283,9 +310,16 @@ public class IntegerSetTest {
 		IntegerSet otherSet = new IntegerSet(otherList);
 		IntegerSet interSection = new IntegerSet(interSectionList);
 		newSet.intersect(otherSet);
+		
+		// This means the OG set should be equal to the set that is actually a intersection
 		assertEquals(newSet, interSection);
 	}
 
+	
+	/**
+	 * Tests IntegerSet objects and makes sure union fn 
+	 * is actually unioning the set
+	 */
 	@Test
     @DisplayName("Test cases for union")
 	public void testUnion() {
@@ -305,9 +339,17 @@ public class IntegerSetTest {
 		IntegerSet newSet2 = new IntegerSet(tempList);
 		IntegerSet newSet3 = new IntegerSet(tempList2);
 		newSet.union(newSet2);
+		
+		
+		// This means the OG set should be equal to the set that is actually a union
 		assertEquals(newSet, newSet3);
 	}
+
 	
+	/**
+	 * Tests IntegerSet objects and makes sure union fn 
+	 * is actually unioning the set
+	 */
 	@Test
     @DisplayName("Test cases for difference")
 	public void testDifference() {
@@ -326,6 +368,8 @@ public class IntegerSetTest {
 		IntegerSet newSet3 = new IntegerSet(tempList2);
 		newSet.intersect(newSet2);
 		System.out.println(newSet);
+		
+		// This means the OG set should be equal to the set that is actually a difference
 		assertEquals(newSet, newSet3);
 	}
 	
