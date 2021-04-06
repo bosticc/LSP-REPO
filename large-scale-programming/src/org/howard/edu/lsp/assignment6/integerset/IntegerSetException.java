@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.howard.edu.lsp.assignment4.implementation;
+package org.howard.edu.lsp.assignment6.integerset;
 
 /**
  * @author bostic

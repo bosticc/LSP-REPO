@@ -5,8 +5,8 @@ package org.howard.edu.lsp.assignment4.test;
 
 import java.util.ArrayList;
 
-import org.howard.edu.lsp.assignment4.implementation.IntegerSet;
-import org.howard.edu.lsp.assignment4.implementation.IntegerSetException;
+import org.howard.edu.lsp.assignment6.integerset.IntegerSet;
+import org.howard.edu.lsp.assignment6.integerset.IntegerSetException;
 
 /**
  * @author bostic
