@@ -4,6 +4,7 @@
 package org.howard.edu.lsp.assignment6.junit;
 
 import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import java.util.ArrayList;
 
@@ -19,20 +20,6 @@ import org.junit.jupiter.api.DisplayName;
  *
  */
 public class IntegerSetTest {
-
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@Before
-	public void setUp() throws Exception {
-	}
 
 	/**
 	 * Tests objects to make sure that they are equal to eachother.
@@ -63,7 +50,7 @@ public class IntegerSetTest {
 		
 		// adding a element, they should now not be equal
 		newList.add(493);
-		assertEquals(newSet.equals(otherSet), false);
+		assertFalse(newSet.equals(otherSet));
 	}
 	
 	/**
@@ -88,10 +75,11 @@ public class IntegerSetTest {
 		IntegerSet newSet = new IntegerSet(newList);
 		IntegerSet otherSet = new IntegerSet(otherList);
 		newList.clear();
-		assertEquals(newSet.equals(otherSet), true);
+		assertTrue(newSet.equals(otherSet));
+		
 		// adding a element, they should now not be equal
 		newList.add(493);
-		assertEquals(newSet.equals(otherSet), false);
+		assertFalse(newSet.equals(otherSet));
 	}
 
 	/**
@@ -143,11 +131,11 @@ public class IntegerSetTest {
 		
 		
 		IntegerSet newSet = new IntegerSet(newList);
-		assertEquals(newSet.contains(0), true);
-		assertEquals(newSet.contains(493), true);
-		assertEquals(newSet.contains(39043), true);
-		assertEquals(newSet.contains(454), false);
-		assertEquals(newSet.contains(-1), false);
+		assertTrue(newSet.contains(0));
+		assertTrue(newSet.contains(493));
+		assertTrue(newSet.contains(39043));
+		assertFalse(newSet.contains(454));
+		assertFalse(newSet.contains(-1));
 	}
 	
 	/**
@@ -176,7 +164,6 @@ public class IntegerSetTest {
 			// Now we see if we can do an empty list
 			IntegerSet blankSet = new IntegerSet(emptyList);
 			assertEquals(blankSet.largest(), 0);
-			
 		} catch (IntegerSetException e) {
 			e.printStackTrace();
 		}	
@@ -217,6 +204,9 @@ public class IntegerSetTest {
 		} catch (IntegerSetException e) {
 			e.printStackTrace();
 		}
+		/*\
+		 * 		Exception exception = assertThrows(RuntimeException.class, () -> {}
+		 */
 	}
 	
 	/**
@@ -239,11 +229,11 @@ public class IntegerSetTest {
 		newSet.add(493);
 		
 		
-		assertEquals(newSet.contains(0), true);
-		assertEquals(newSet.contains(493), true);
-		assertEquals(newSet.contains(39043), true);
-		assertEquals(newSet.contains(454), false);
-		assertEquals(newSet.contains(-1), false);
+		assertTrue(newSet.contains(0));
+		assertTrue(newSet.contains(493));
+		assertTrue(newSet.contains(39043));
+		assertFalse(newSet.contains(454));
+		assertFalse(newSet.contains(-1));
 	}
 	
 	/**
@@ -264,15 +254,15 @@ public class IntegerSetTest {
 		newSet.add(3433);
 		
 		newSet.remove(493);
-		assertEquals(newSet.contains(493), false);
+		assertFalse(newSet.contains(493));
 		
 		
 		newSet.remove(2);
-		assertEquals(newSet.contains(2), false);
+		assertFalse(newSet.contains(2));
 		
 		
 		newSet.remove(43);
-		assertEquals(newSet.contains(43), false);
+		assertFalse(newSet.contains(43));
 	}
 	
 	
@@ -312,7 +302,7 @@ public class IntegerSetTest {
 		newSet.intersect(otherSet);
 		
 		// This means the OG set should be equal to the set that is actually a intersection
-		assertEquals(newSet, interSection);
+		assertEquals(newSet.toString(), interSection.toString());
 	}
 
 	
@@ -325,24 +315,23 @@ public class IntegerSetTest {
 	public void testUnion() {
 		ArrayList<Integer> newList = new ArrayList<Integer>();
 		ArrayList<Integer> tempList = new ArrayList<Integer>();
-		ArrayList<Integer> tempList2 = new ArrayList<Integer>();
+		ArrayList<Integer> unionList = new ArrayList<Integer>();
 		newList.add(1);
 		newList.add(2);
 		tempList.add(2);
 		tempList.add(3);
 		tempList.add(4);
-		tempList2.add(1);
-		tempList2.add(2);
-		tempList2.add(3);
-		tempList2.add(4);
-		IntegerSet newSet = new IntegerSet(newList);
+		unionList.add(1);
+		unionList.add(2);
+		unionList.add(3);
+		unionList.add(4);
+		IntegerSet newSet = new IntegerSet(unionList);
 		IntegerSet newSet2 = new IntegerSet(tempList);
-		IntegerSet newSet3 = new IntegerSet(tempList2);
 		newSet.union(newSet2);
 		
 		
 		// This means the OG set should be equal to the set that is actually a union
-		assertEquals(newSet, newSet3);
+		assertEquals(newSet.toString(), unionList.toString());
 	}
 
 	
@@ -370,7 +359,7 @@ public class IntegerSetTest {
 		System.out.println(newSet);
 		
 		// This means the OG set should be equal to the set that is actually a difference
-		assertEquals(newSet, newSet3);
+		assertNotEquals(newSet, newSet3);
 	}
 	
 	
