@@ -40,7 +40,6 @@ public class TestTollBooth {
 		
 		assertTrue(booth.toString().contains("560000"));
 		assertTrue(booth.toString().contains("3"));
-
 	}
 
 }
