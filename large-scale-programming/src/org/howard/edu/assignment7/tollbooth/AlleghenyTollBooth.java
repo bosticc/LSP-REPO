@@ -9,9 +9,8 @@ public class AlleghenyTollBooth implements TollBooth {
 	@Override
 	public int calculateToll(Truck truck) {
 		allTrucks.add(truck);
-		int totalCost = truck.getAxles() * 5 + (truck.getWeight()/200);
-		System.out.println("Truck arrival - Axles: " + truck.getAxles() + " Total weight: " + truck.getWeight()+ "Toll due: $" + totalCost);
-		return totalCost;
+		System.out.println("Truck arrival - Axles: " + truck.getAxles() + " Total weight: " + truck.getWeight()+ "Toll due: $" + truck.getCost());
+		return truck.getCost();
 	}
 
 	@Override
