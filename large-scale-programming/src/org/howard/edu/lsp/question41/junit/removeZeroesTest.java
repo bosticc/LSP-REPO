@@ -47,8 +47,7 @@ class removeZeroesTest {
 		// List should now be empty
 		
 		assertTrue(testSet.isEmpty());
-		System.out.println(testSet);
-		
+		System.out.println(testSet);	
 	}
 
 }

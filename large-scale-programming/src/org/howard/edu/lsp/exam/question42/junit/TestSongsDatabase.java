@@ -38,9 +38,6 @@ public class TestSongsDatabase {
 		assertTrue( db.getSongs("Jazz").contains("Always There"));
 		assertFalse( db.getSongs("Jazz").contains("Savage"));
 		assertFalse( db.getSongs("Jazz").contains("Gin and Juice"));
-
-
-
 	}
 
 }

@@ -39,8 +39,6 @@ public class SongsDatabase {
     	public String getGenreOfSong(String songTitle) {
     		for(String key: map.keySet())
     		{
-    			System.out.println(map.get(key));
-    			System.out.println(songTitle);
     			if(map.get(key).contains(songTitle)) {
     				return key;
     			}
